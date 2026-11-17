@@ -3,10 +3,10 @@
 // src/api/ that reaches the server goes through apiFetch.
 
 import { getToken } from './session.ts';
-
+// No VITE_API_URL (as on the server)? Use the page's own address.
+export const API_URL = import.meta.env.VITE_API_URL ?? window.location.origin;
 // From client/.env. Vite only hands the browser variables that start with
 // VITE_, and only reads .env when `npm run dev` starts.
-const API_URL = import.meta.env.VITE_API_URL;
 // #endregion api-url
 
 type Options = {
